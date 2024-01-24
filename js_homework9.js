@@ -15,7 +15,12 @@ console.log(arr);
 // ДЗ: 2
 function findValueByKey(companyName, companyObject) {
     if (companyObject.name === companyName) {
-        return companyObject;
+        return {
+            name: companyObject.name,
+            type: companyObject.type,
+            uses: companyObject.uses,
+            sells: companyObject.sells,
+        };
     }
 
     if (companyObject.clients) {
@@ -37,7 +42,7 @@ function findValueByKey(companyName, companyObject) {
 
 const company = {
     name: 'Велика Компанія',
-    type:'Головна компанія',
+    type: 'Головна компанія',
     platform: 'Платформа для продажу квитків',
     sellsSolution: 'Рішення для продажу квитків',
     clients: [
@@ -64,18 +69,18 @@ const company = {
                             type: 'subSubCompany',
                             uses: 'Рішення для продажу квитків',
                             sells: 'Рішення для продажу квитків',
-                        }
-                    ]
-                }
-            ]
+                        },
+                    ],
+                },
+            ],
         },
         {
             name: 'Клієнт 2',
             type: 'subCompany',
             uses: 'ПО для продажу квитків',
-            sells: 'Рішення для продажу квитків'
-        }
-    ]
+            sells: 'Рішення для продажу квитків',
+        },
+    ],
 };
 
 console.log(findValueByKey('Клієнт 1', company));
